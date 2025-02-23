@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" id="myButton" value="${user.account}" name="account">
+<script>
+    document.getElementById('myButton').addEventListener('click', function() {
+        // 更改按钮类型为文本输入框
+        this.type = 'text';
+
+        // 可选：设置输入框的初始值
+        this.value = this.getAttribute('value');
+    });
+</script>
+
+</body>
+</html>

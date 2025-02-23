@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图书馆注册系统</title>
+    <!--
+        注册条件：
+                1.用户名为英文+数字：eg:zhang123
+                2.密码为纯英文：eg：mnbvcx
+                3.email
+    -->
+</head>
+<body>
+<!--
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+-->
+<!-- onsubmit="return judgeResgisterResult()"-->
+<div style=" background-image: url('image/a1.jpg') ;height: 724px;width: 1450px">
+    <p1>
+
+        <form action="/ResgisterServlet" method="post" style="padding-left: 150px;padding-right: 100px;padding-top: 100px">
+
+                    <table border="17" style="width: 500px;height: 400px;background-color: white">
+
+                        <tr style="height: 50px">
+                            <th colspan="3" style="size: A3">注册</th>
+                        </tr>
+                        <tr>
+                            <td align="center"><label for="account-label"><span style=" font-size:30px;">账号</span></label></td>
+                            <td align="center" colspan="2"><input type="text" name="account" id="account-label"
+                                                                  style="width: 200px">
+                                <br>
+                                <text style="visibility: hidden" id="account-Text">账号规则大于4并且小于15</text>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+                            <td align="center"><label for="password-label"><span style=" font-size:30px;">密码</span></label></td>
+                            <td align="center" colspan="2"><input type="text" name="password" id="password-label"
+                                                                  style="width: 200px">
+                                <br>
+                                <text style="visibility: hidden" id="password-Text">密码规则大于5并且小于16</text>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center"><label for="Email-label"><span style=" font-size:30px;">邮箱</span></label></td>
+                            <td align="center" colspan="2"><input type="text" name="Email" id="Email-label"
+                                                                  style="width: 200px">
+                                <br>
+                                <text style="visibility: hidden" id="Email-Text">邮箱规则：XXX@XX.com</text>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center"><label for="code-label"><span style=" font-size:30px;">验证码</span></label></td>
+                            <td style="padding-left: 60px"><input type="text" name="code" id="code-label" style="width: 60px">
+                                <br>
+                                <text style="visibility: hidden;size: 10px" id="code-Text">与验证码不符</text>
+                            </td>
+                            <td align="center">
+                                <div id="cord">
+                                    <button onclick="generateNewRandomString()" style="width: 100px">
+                                        <p id="randomText">获取验证码</p>
+                                    </button>
+                                </div>
+
+                            </td>
+                        </tr>
+                        <tr style="height: 50px">
+                            <td colspan="3" align="center"><a href="Login.html"
+                                                              style="float: left;size: 1px; color:red ;">返回</a></a>
+                                <input size="30px" type="submit" >
+                            </td>
+                </tr>
+            </table>
+        </form>
+    </p1>
+</div>
+<script>
+    var accountID = document.getElementById("account-label");
+    var accountText = document.getElementById("account-Text");
+    var passwordID = document.getElementById("password-label")
+    var passwordText = document.getElementById("password-Text");
+    var EmailID = document.getElementById("Email-label")
+    var EmailText = document.getElementById("Email-Text");
+    var codeID = document.getElementById("code-label")
+    var codeText = document.getElementById("code-Text");
+    var textElement = document.getElementById('randomText');
+    var judgeResult="false";//判断是否可以进行注册
+
+    accountID.onblur = function () {
+        var account = accountID.value.trim();
+        console.log(account)/**/
+        if (account == "" || account.length <= 4 || account.length >= 15) {
+            accountText.style.visibility = "";
+            judgeResult="false";
+        } else {
+            accountText.style.visibility = "hidden";
+            judgeResult="true";
+        }
+    }
+
+    passwordID.onblur = function () {
+        var password = passwordID.value.trim();
+        /*       console.log(password)*/
+        if (password == "" || password.length <= 5 || password.length >= 16) {
+            passwordText.style.visibility = "";
+            judgeResult="false";
+        } else {
+            passwordText.style.visibility = "hidden";
+            judgeResult="true";
+        }
+    }
+
+    EmailID.onblur = function () {
+        var Email = EmailID.value.trim();
+        /*       console.log(password)*/
+            if (Email.includes('@')&&Email.includes('.com')) {
+                EmailText.style.visibility = "hidden";
+                judgeResult="true";
+            } else {
+                EmailText.style.visibility = "";
+                judgeResult="false";
+
+            }
+
+    }
+
+    codeID.onblur = function () {
+        var code = codeID.value.trim();
+        console.log(code,textElement.textContent)
+        if (code!=textElement.textContent) {
+            codeText.style.visibility = "";
+            judgeResult="false";
+        } else {
+            codeText.style.visibility = "hidden";
+            judgeResult="true";
+        }
+    }
+
+    function generateRandomString(length) {
+        var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        var result = '';
+        for (var i = 0; i < length; i++) {
+            result += characters.charAt(Math.floor(Math.random() * characters.length));
+        }
+        return result;
+    }
+
+    /*   // 当页面加载时，生成并显示随机字符串
+       window.onload = function() {
+           var textElement = document.getElementById('randomText');
+           var length = 4; // 你可以根据需要调整这个长度
+
+       };*/
+
+    // 当按钮被点击时，生成并显示新的随机字符串
+    function generateNewRandomString() {
+        event.preventDefault();
+
+        var length = 4; // 你可以根据需要调整这个长度
+        textElement.textContent = generateRandomString(length);
+    }
+
+/*    function judgeResgisterResult() {
+        if (judgeResult=="true"){
+            alert("注册成功")
+            return true;
+        }else {
+            alert("当前账号不符合注册规则")
+            return false;
+        }
+    }*/
+
+</script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图书馆登录系统</title>
+</head>
+<body>
+<div style=" background-image: url('image/a1.jpg') ;height: 724px;width: 1450px">
+
+
+    <a1>
+        <form action="/LoginServlet" method="post" onsubmit="return judgeLoginResult()" style="padding-left: 150px;padding-right: 100px;padding-top: 100px">
+            <table border="17" style="width: 400px;height: 300px;background-color: white">
+                <tr style="height: 50px">
+                    <th colspan="2" style="size: A4">登录</th>
+                </tr>
+                <tr>
+                    <td align="center"><label for="account-label"><span style=" font-size:30px;">账号</span></label></td>
+                    <td align="center" colspan="2"><input type="text" name="account" id="account-label"
+                                                          style="width: 200px">
+                        <br>
+                        <text style="visibility: hidden" id="account-Text">账号规则大于4并且小于15</text>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td align="center"><label for="password-label"><span style=" font-size:30px;">密码</span></label></td>
+                    <td align="center" colspan="2"><input type="text" name="password" id="password-label"
+                                                          style="width: 200px">
+                        <br>
+                        <text style="visibility: hidden" id="password-Text">密码规则大于5并且小于16</text>
+                    </td>
+                </tr>
+                <tr style="height: 50px">
+                    <td colspan="2" align="center">
+                        <button ><a href="Resgister.html">注册</a></button>
+                        <input size="30px" type="submit" value="登录">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </a1>
+</div>
+<script>
+    var accountID = document.getElementById("account-label");
+    var accountText = document.getElementById("account-Text");
+    var passwordID = document.getElementById("password-label")
+    var passwordText = document.getElementById("password-Text");
+    var judgeResult="false";
+    accountID.onblur = function () {
+        var account = accountID.value.trim();
+        console.log(account)/**/
+        if (account == "" || account.length <= 4 || account.length >= 15) {
+            accountText.style.visibility = "";
+            judgeResult="false";
+        } else {
+            accountText.style.visibility = "hidden";
+            judgeResult="true";
+        }
+    }
+
+    passwordID.onblur = function () {
+        var password = passwordID.value.trim();
+        /*       console.log(password)*/
+        if (password == "" || password.length <= 5 || password.length >= 16) {
+            passwordText.style.visibility = "";
+            judgeResult="false";
+        } else {
+            passwordText.style.visibility = "hidden";
+            judgeResult="true";
+        }
+    }
+
+    function judgeLoginResult() {
+        if (judgeResult=="true"){
+            alert("登录成功")
+            return true;
+        }else {
+            alert("当前数据不符合登录规则，请重新填入")
+            return false;
+        }
+    }
+</script>
+</body>
+</html>

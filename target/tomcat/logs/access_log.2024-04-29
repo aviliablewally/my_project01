@@ -1,0 +1,15 @@
+0:0:0:0:0:0:0:1 - - [29/Apr/2024:22:39:13 +0800] "GET / HTTP/1.1" 200 787 http-bio-8080-exec-2 85
+0:0:0:0:0:0:0:1 - - [29/Apr/2024:22:39:14 +0800] "GET /favicon.ico HTTP/1.1" 404 973 http-bio-8080-exec-3 6
+0:0:0:0:0:0:0:1 - - [29/Apr/2024:22:42:53 +0800] "GET / HTTP/1.1" 200 896 http-bio-8080-exec-1 77
+0:0:0:0:0:0:0:1 - - [29/Apr/2024:22:42:54 +0800] "GET /Login.html HTTP/1.1" 200 3520 http-bio-8080-exec-3 67
+0:0:0:0:0:0:0:1 - - [29/Apr/2024:22:42:55 +0800] "GET /image/a1.jpg HTTP/1.1" 304 - http-bio-8080-exec-4 43
+0:0:0:0:0:0:0:1 - - [29/Apr/2024:22:43:27 +0800] "POST /LoginServlet HTTP/1.1" 302 - http-bio-8080-exec-5 6859
+0:0:0:0:0:0:0:1 - - [29/Apr/2024:22:43:28 +0800] "GET /bookServlet?username=huanhuaxixuan&cardID=0 HTTP/1.1" 200 102943 http-bio-8080-exec-7 603
+0:0:0:0:0:0:0:1 - - [29/Apr/2024:22:44:02 +0800] "GET /subscribeServlet?reader=huanhuaxixuan&id=5&cardID=0 HTTP/1.1" 200 102957 http-bio-8080-exec-8 244
+0:0:0:0:0:0:0:1 - - [29/Apr/2024:22:45:19 +0800] "GET / HTTP/1.1" 304 - http-bio-8080-exec-1 120
+0:0:0:0:0:0:0:1 - - [29/Apr/2024:22:45:20 +0800] "GET /favicon.ico HTTP/1.1" 404 973 http-bio-8080-exec-3 12
+0:0:0:0:0:0:0:1 - - [29/Apr/2024:22:45:40 +0800] "POST /LoginServlet HTTP/1.1" 302 - http-bio-8080-exec-4 5955
+0:0:0:0:0:0:0:1 - - [29/Apr/2024:22:45:40 +0800] "GET /bookServlet?username=huanhuaxixuan&cardID=0 HTTP/1.1" 200 102957 http-bio-8080-exec-5 550
+0:0:0:0:0:0:0:1 - - [29/Apr/2024:22:46:48 +0800] "POST /LoginServlet HTTP/1.1" 302 - http-bio-8080-exec-7 12
+0:0:0:0:0:0:0:1 - - [29/Apr/2024:22:46:48 +0800] "GET /bookServlet?username=zhangsan&cardID=1 HTTP/1.1" 200 117870 http-bio-8080-exec-9 72
+0:0:0:0:0:0:0:1 - - [29/Apr/2024:22:47:11 +0800] "GET /cancelServlet?reader=zhangsan&id=3&cardID=1 HTTP/1.1" 200 117861 http-bio-8080-exec-10 254

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huanhuaxixuan.MYSQL.Mapper.bookMapper">
+    <resultMap id="bookType" type="com.huanhuaxixuan.prjo.Book">
+        <result column="ID" property="id"/>
+    </resultMap>
+    <insert id="insertBook">
+        insert into
+            gd_books(bookName,bookWriter,bookBrief,reader,borrowingStatus)
+        value
+            (#{bookName}, #{bookWriter},#{bookBrief},#{reader}, #{borrowingStatus});
+    </insert>
+    <update id="UpdateReaderByBookID">
+        update gd_books
+        set
+        reader=#{reader},
+        borrowingStatus='1'
+        where ID=#{id};
+    </update>
+    <update id="UpdateCancelReaderByBookID">
+        update gd_books
+        set
+        reader=#{reader},
+        borrowingStatus='0'
+        where ID=#{id};
+    </update>
+    <update id="updateBook">
+        update gd_books
+        set
+        bookName=#{bookName},
+        bookWriter=#{bookWriter},
+        bookBrief=#{bookBrief}
+        where ID=#{id};
+    </update>
+    <delete id="deleteBookByBookID">
+        delete from gd_books where ID=#{id}
+    </delete>
+
+    <select id="selectAll" resultType="com.huanhuaxixuan.prjo.Book" resultMap="bookType">
+        select * from gd_books;
+    </select>
+    <select id="selectBookByID" resultType="com.huanhuaxixuan.prjo.Book">
+        select * from gd_books where ID=#{id};
+    </select>
+
+</mapper>

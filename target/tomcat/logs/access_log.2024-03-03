@@ -1,0 +1,6 @@
+0:0:0:0:0:0:0:1 - - [03/Mar/2024:14:58:01 +0800] "GET / HTTP/1.1" 304 - http-bio-8080-exec-2 48
+0:0:0:0:0:0:0:1 - - [03/Mar/2024:14:58:02 +0800] "GET /favicon.ico HTTP/1.1" 404 973 http-bio-8080-exec-3 6
+0:0:0:0:0:0:0:1 - - [03/Mar/2024:14:58:03 +0800] "GET /Login.html HTTP/1.1" 200 3522 http-bio-8080-exec-4 5
+0:0:0:0:0:0:0:1 - - [03/Mar/2024:14:58:03 +0800] "GET /image/a1.jpg HTTP/1.1" 304 - http-bio-8080-exec-5 5
+0:0:0:0:0:0:0:1 - - [03/Mar/2024:14:58:05 +0800] "GET /Resgister.html HTTP/1.1" 304 - http-bio-8080-exec-6 3
+0:0:0:0:0:0:0:1 - - [03/Mar/2024:14:58:44 +0800] "POST /ResgisterServlet HTTP/1.1" 200 65 http-bio-8080-exec-7 2719

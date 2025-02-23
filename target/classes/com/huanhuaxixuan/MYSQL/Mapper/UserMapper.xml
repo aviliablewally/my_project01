@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huanhuaxixuan.MYSQL.Mapper.UserMapper">
+    <update id="updateByUserID">
+        update gd_user
+        set
+            account =#{account},
+            password=#{password},
+            email=#{email},
+            cardId  =#{cardID}
+        where Id=#{id};
+    </update>
+
+
+    <select id="selectByAccount" resultType="com.huanhuaxixuan.prjo.User">
+    select * from gd_user where account=#{account};
+    </select>
+    <select id="selectAllUser" resultType="com.huanhuaxixuan.prjo.User" >
+        select * from gd_user;
+    </select>
+</mapper>

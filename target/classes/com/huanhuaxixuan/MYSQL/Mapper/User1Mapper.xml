@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huanhuaxixuan.MYSQL.Mapper.User1Mapper">
+
+
+    <select id="selectONE" resultType="com.huanhuaxixuan.prjo.User1">
+        select account,password,cardID from gd_user;
+    </select>
+    <select id="checkSeclect" resultType="com.huanhuaxixuan.prjo.User1">
+        select password,cardID from gd_user where account=#{user};
+    </select>
+
+</mapper>

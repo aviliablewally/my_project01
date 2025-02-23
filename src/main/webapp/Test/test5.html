@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div style="padding-top: 150px">
+    <form method="post" action="/insertBookServlet">
+
+        <table align="center" border="4">
+
+            <tr style="display: none">
+                <td><input type="text" value="${root}" name="root"></td>
+                <td><input type="text" value="${cardID}" name="cardID"></td>
+            </tr>
+            <td rowspan="6">
+                <img id="imagePreview" style="display: none;" width="200px"
+                     height="200px"/>
+            </td>
+            <tr>
+                <td>书籍图像</td>
+                <td>
+                    <!--        <img src="http://192.168.0.101/image/bookPicture/${bookList.bookName}.jpg" width="100px"
+                                 height="100px">-->
+
+                    <input type="file" name="file" size="100mb" accept="image/*" onchange="previewImage(this)"
+                           value="书籍图像">
+                </td>
+            </tr>
+
+            <tr>
+                <td>书籍名称:</td>
+                <td><input type="text" name="bookName"/>
+            </tr>
+            <tr style="width: 50px;height: 40px">
+                <td>作者:</td>
+                <td colspan="3"><input type="text" name="bookWriter"></td>
+
+            </tr>
+            <tr style="width: 50px;height: 40px">
+                <td>简介:</td>
+                <td colspan="3">
+                    <textarea style="width: 200px;height: 150px;resize: none" name="bookBrief"></textarea>
+                </td>
+            </tr>
+
+            <tr style="height: 50px">
+                <td colspan="3" align="center">
+                    <input size="30px" type="submit">
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+<script>
+    function previewImage(fileInput) {
+        // 检查是否有文件被选中
+        if (fileInput.files && fileInput.files[0]) {
+            // 创建一个FileReader对象
+            const reader = new FileReader();
+
+            // 定义当文件读取完成时的回调函数
+            reader.onload = function (e) {
+                // 获取用于显示图像的容器
+                const imagePreview = document.getElementById('imagePreview');
+
+                // 创建一个新的img元素
+                const img = document.createElement('img');
+                img.src = e.target.result; // 设置img元素的src为读取到的文件数据
+
+                // 将img元素添加到容器中
+                imagePreview.innerHTML = ''; // 清除容器中原有的内容
+                imagePreview.appendChild(img);
+
+                // 显示容器
+                imagePreview.style.display = 'block';
+            };
+
+            // 使用FileReader对象读取文件数据
+            reader.readAsDataURL(fileInput.files[0]);
+        }
+    }
+</script>
+</body>
+</html>

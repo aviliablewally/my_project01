@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random String Generator</title>
+    <script>
+        // 你的 generateRandomString 函数定义
+        function generateRandomString(length) {
+            var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            var result = '';
+            for (var i = 0; i < length; i++) {
+                result += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            return result;
+        }
+
+        // 当页面加载时，生成并显示随机字符串
+        window.onload = function() {
+            var textElement = document.getElementById('randomText');
+            var length = 10; // 你可以根据需要调整这个长度
+            textElement.textContent = generateRandomString(length);
+        };
+
+        // 当按钮被点击时，生成并显示新的随机字符串
+        function generateNewRandomString() {
+            var textElement = document.getElementById('randomText');
+            var length = 10; // 你可以根据需要调整这个长度
+            textElement.textContent = generateRandomString(length);
+        }
+    </script>
+</head>
+<body>
+
+<p id="randomText"></p>
+<button onclick="generateNewRandomString()">Generate New Random String</button>
+
+</body>
+</html>

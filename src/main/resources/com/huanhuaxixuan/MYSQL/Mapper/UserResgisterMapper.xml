@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huanhuaxixuan.MYSQL.Mapper.UserResgisterMapper">
+    <insert id="insertUserByResgister">
+        insert into gd_user(account, password, email, cardID)
+            value (#{account},#{password},#{email},"0")
+    </insert>
+
+
+    <select id="selectByAccount" resultType="java.lang.Boolean">
+        SELECT COUNT(*) > 0
+        FROM gd_user
+        WHERE account = #{account};
+    </select>
+
+</mapper>
